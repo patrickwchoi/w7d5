@@ -9,7 +9,7 @@ class SubsController < ApplicationController
       @sub = Sub.new(sub_params)
       @sub.moderator_id = current_user.id
       if @sub.save
-        render :show
+        redirect_to subs_url
       else 
         flash.now[:errors] = @sub.errors.full_messages
         render :new 

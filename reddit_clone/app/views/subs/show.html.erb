@@ -1,9 +1,12 @@
 <h2><%= @sub.title %></h2>
+<h3><%= User.find(@sub.moderator_id).username %></h3>
 <p><%= @sub.description %></p>
-<% @posts.each do |post| %>
-    <a href="<%= post.url %>"><%= post.title %></a>
-    <p><%= post.content %></p>
-    <h3><%= User.find(post.author_id).username %></h3>
+<% if @posts %>
+    <% @posts.each do |post| %>
+        <a href="<%= post.url %>"><%= post.title %></a>
+        <p><%= post.content %></p>
+        <h3><%= User.find(post.author_id).username %></h3>
+    <% end %>
 <% end %>
 <% if current_user.id == @sub.moderator_id %>
     <a href="<%= edit_sub_url(@sub) %>">Edit Sub</a>
