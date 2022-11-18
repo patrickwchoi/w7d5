@@ -1,1 +1,9 @@
 <h2><%= @user.username %></h2>
+<% @user.posts.each do |post| %>
+    <ul>
+        <li><%= post.title %></li>
+        <li><%= post.url %></li>
+        <li><%= post.content %></li>
+        <li><%= Sub.find(post.sub_id).title %></li>
+    </ul>
+<% end %>
