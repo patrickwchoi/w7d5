@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
             # here @user is nil because we couldnt find a user
             # with the given credentials -> meaning we cant call
             # @user.errors.full_messages
+            @user = User.new(username: username, password: password)
             flash.now[:errors] = ["Invalid credentials"]
             render :new
         end

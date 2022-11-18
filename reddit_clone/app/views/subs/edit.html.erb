@@ -1,0 +1,8 @@
+<h2>Edit Sub</h2>
+<form action="<%= sub_url(@sub) %>" method="post">
+    <%= auth_token %>
+    <input type="hidden" name="_method" value="patch">
+    <input type="text" name="sub[title]" value="<%= @sub.title %>">
+    <textarea name="sub[description]"><%= @sub.description %></textarea>
+    <input type="submit" value="Edit">
+</form>
